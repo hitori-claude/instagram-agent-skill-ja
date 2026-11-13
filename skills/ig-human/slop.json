@@ -1,0 +1,1157 @@
+{
+  "version": "1.0-ja",
+  "note": "humanize.py と detect.py が使う辞書です。replace が文字列なら自動で置き換え、空文字なら自動で削除、null なら数えるだけで自動では直しません（意味が変わりやすいため）。regex: true の行は find を正規表現として扱います。しきい値もこの辞書も日本語データで検証したものではありません。自分の口ぐせが入っていたら遠慮なく消してください。",
+  "invisible": [
+    {
+      "cp": "U+200B",
+      "name": "ZERO WIDTH SPACE",
+      "action": "delete"
+    },
+    {
+      "cp": "U+200C",
+      "name": "ZERO WIDTH NON-JOINER",
+      "action": "delete"
+    },
+    {
+      "cp": "U+200D",
+      "name": "ZERO WIDTH JOINER",
+      "action": "delete"
+    },
+    {
+      "cp": "U+2060",
+      "name": "WORD JOINER",
+      "action": "delete"
+    },
+    {
+      "cp": "U+FEFF",
+      "name": "ZERO WIDTH NO-BREAK SPACE / BOM",
+      "action": "delete"
+    },
+    {
+      "cp": "U+00AD",
+      "name": "SOFT HYPHEN",
+      "action": "delete"
+    },
+    {
+      "cp": "U+180E",
+      "name": "MONGOLIAN VOWEL SEPARATOR",
+      "action": "delete"
+    },
+    {
+      "cp": "U+061C",
+      "name": "ARABIC LETTER MARK",
+      "action": "delete"
+    },
+    {
+      "cp": "U+200E",
+      "name": "LEFT-TO-RIGHT MARK",
+      "action": "delete"
+    },
+    {
+      "cp": "U+200F",
+      "name": "RIGHT-TO-LEFT MARK",
+      "action": "delete"
+    },
+    {
+      "cp": "U+E0000-U+E007F",
+      "name": "TAG CHARACTERS (invisible ASCII smuggling)",
+      "action": "delete"
+    },
+    {
+      "cp": "U+00A0",
+      "name": "NO-BREAK SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+202F",
+      "name": "NARROW NO-BREAK SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2009",
+      "name": "THIN SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2007",
+      "name": "FIGURE SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2003",
+      "name": "EM SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2002",
+      "name": "EN SPACE",
+      "action": "space"
+    },
+    {
+      "cp": "U+2063",
+      "name": "INVISIBLE SEPARATOR",
+      "action": "delete"
+    }
+  ],
+  "typographic": [
+    {
+      "from": "—",
+      "name": "EM DASH（—）",
+      "to": "、"
+    },
+    {
+      "from": "―",
+      "name": "HORIZONTAL BAR（―）",
+      "to": "、"
+    },
+    {
+      "from": "–",
+      "name": "EN DASH（–）",
+      "to": "、"
+    },
+    {
+      "from": "“",
+      "name": "LEFT DOUBLE QUOTE（“）",
+      "to": "「"
+    },
+    {
+      "from": "”",
+      "name": "RIGHT DOUBLE QUOTE（”）",
+      "to": "」"
+    },
+    {
+      "from": "‘",
+      "name": "LEFT SINGLE QUOTE（‘）",
+      "to": "「"
+    },
+    {
+      "from": "’",
+      "name": "RIGHT SINGLE QUOTE（’）",
+      "to": "」"
+    },
+    {
+      "from": "·",
+      "name": "MIDDLE DOT（·）",
+      "to": "・"
+    },
+    {
+      "from": "•",
+      "name": "BULLET（•）",
+      "to": "・"
+    }
+  ],
+  "markdown": [
+    {
+      "id": "bold",
+      "name": "太字の **",
+      "action": "記号だけ消す"
+    },
+    {
+      "id": "header",
+      "name": "見出しの #",
+      "action": "記号だけ消す（ハッシュタグは残す）"
+    },
+    {
+      "id": "bullet",
+      "name": "箇条書きの - / *",
+      "action": "「・」に変える"
+    },
+    {
+      "id": "code",
+      "name": "バッククォート `",
+      "action": "記号だけ消す"
+    },
+    {
+      "id": "link",
+      "name": "[文字](URL)",
+      "action": "「文字 URL」にする"
+    },
+    {
+      "id": "quote",
+      "name": "引用の >",
+      "action": "記号だけ消す"
+    },
+    {
+      "id": "rule",
+      "name": "区切り線 ---",
+      "action": "空行にする"
+    }
+  ],
+  "words": [
+    {
+      "find": "において",
+      "replace": "で",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "における",
+      "replace": "の",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "を通じて",
+      "replace": "で",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "に関して",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "「〜について」「〜の」で足りることが多い"
+    },
+    {
+      "find": "重要な",
+      "replace": "大事な",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "非常に",
+      "replace": "かなり",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "極めて",
+      "replace": "かなり",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "大いに",
+      "replace": null,
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "不可欠な",
+      "replace": "欠かせない",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "最適な",
+      "replace": "ぴったりの",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "新たな",
+      "replace": "新しい",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "数多くの",
+      "replace": "たくさんの",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "方々",
+      "replace": "人たち",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "皆様",
+      "replace": "みなさん",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "皆さま",
+      "replace": "みなさん",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "様々な",
+      "replace": "いろんな",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "多様な",
+      "replace": "いろんな",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "最大限に",
+      "replace": "できるだけ",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "さらなる",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "「もっと」で言い換えられるか試す"
+    },
+    {
+      "find": "活用して",
+      "replace": "使って",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "活用",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "「使う」で足りないか見る"
+    },
+    {
+      "find": "効果的",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "何にどう効くのかを書く"
+    },
+    {
+      "find": "包括的",
+      "replace": null,
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "総合的",
+      "replace": null,
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "本質的",
+      "replace": null,
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "近年、",
+      "replace": "最近、",
+      "family": "前置き"
+    },
+    {
+      "find": "昨今",
+      "replace": "最近",
+      "family": "前置き"
+    },
+    {
+      "find": "興味深い",
+      "replace": "おもしろい",
+      "family": "前置き"
+    },
+    {
+      "find": "加えて、",
+      "replace": "それに、",
+      "family": "前置き"
+    },
+    {
+      "find": "また、",
+      "replace": null,
+      "family": "前置き",
+      "note": "文頭の「また、」が続くとAIっぽい。2回までに"
+    },
+    {
+      "find": "さらに、",
+      "replace": null,
+      "family": "前置き",
+      "note": "文頭の「さらに、」が続くとAIっぽい"
+    },
+    {
+      "find": "一方で、",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "幸いです",
+      "replace": "うれしいです",
+      "family": "結び"
+    },
+    {
+      "find": "まさに",
+      "replace": "",
+      "family": "誇張"
+    },
+    {
+      "find": "革命的",
+      "replace": null,
+      "family": "誇張",
+      "note": "何がどう変わったかを書く"
+    },
+    {
+      "find": "画期的",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "劇的に",
+      "replace": "ぐっと",
+      "family": "誇張"
+    },
+    {
+      "find": "飛躍的に",
+      "replace": "ぐっと",
+      "family": "誇張"
+    },
+    {
+      "find": "格段に",
+      "replace": "ぐっと",
+      "family": "誇張"
+    },
+    {
+      "find": "驚くほど",
+      "replace": "かなり",
+      "family": "誇張"
+    },
+    {
+      "find": "圧倒的",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "唯一無二",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "への近道",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "秘訣",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "真髄",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "必見",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "徹底解説",
+      "replace": "解説",
+      "family": "誇張"
+    },
+    {
+      "find": "魅力",
+      "replace": null,
+      "family": "誇張",
+      "note": "「魅力」と書かずに、どこが良いのかを書く"
+    },
+    {
+      "find": "鍵となる",
+      "replace": null,
+      "family": "誇張",
+      "note": "「大事な」で言い換えられるか、文ごと見直す"
+    },
+    {
+      "find": "鍵を握る",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "紐解",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "深掘り",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "掘り下げ",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "解き明か",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "寄り添",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "彩り",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "彩る",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "織りなす",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "奥深い",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "心温まる",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "心に響く",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "新たな扉",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "扉を開",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "シナジー",
+      "replace": null,
+      "family": "カタカナ語"
+    },
+    {
+      "find": "持続可能",
+      "replace": null,
+      "family": "カタカナ語"
+    },
+    {
+      "find": "な方必見",
+      "replace": null,
+      "family": "インスタ"
+    },
+    {
+      "find": "保存推奨",
+      "replace": null,
+      "family": "インスタ"
+    }
+  ],
+  "phrases": [
+    {
+      "find": "においては",
+      "replace": "では",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "することにより",
+      "replace": "することで",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "することができ",
+      "replace": "でき",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "ことができます",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "「見られます」「行けます」のように短くできることが多い"
+    },
+    {
+      "find": "となっております",
+      "replace": "です",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "となっています",
+      "replace": "です",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "させていただきます",
+      "replace": "します",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "と思われます",
+      "replace": "と思います",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "だと言えるでしょう",
+      "replace": "だと思います",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "と言えるでしょう",
+      "replace": "と思います",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "と言えます",
+      "replace": "と思います",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "と言っても過言ではありません",
+      "replace": "と思っています",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "に他なりません",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "「〜です」で言い切る"
+    },
+    {
+      "find": "とされています",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "誰がそう言っているのかを書く"
+    },
+    {
+      "find": "が挙げられます",
+      "replace": "があります",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "として挙げられるのが",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "例をそのまま書き出す"
+    },
+    {
+      "find": "考えられます",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "「〜だと思います」か、根拠を書く"
+    },
+    {
+      "find": "(?<!も)のです。",
+      "replace": "んです。",
+      "family": "硬い言い回し",
+      "regex": true
+    },
+    {
+      "find": "なのです。",
+      "replace": "なんです。",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "であると言える",
+      "replace": null,
+      "family": "硬い言い回し",
+      "note": "言い切る"
+    },
+    {
+      "find": "することが重要です",
+      "replace": "するのが大事です",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "ことが重要です",
+      "replace": "のが大事です",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "ことが大切です",
+      "replace": "のが大事です",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "が重要です",
+      "replace": "が大事です",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "重要なのは",
+      "replace": "大事なのは",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "必要不可欠な",
+      "replace": "欠かせない",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "不可欠です",
+      "replace": "欠かせません",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "多くの方々",
+      "replace": "たくさんの人",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "さまざまな",
+      "replace": "いろんな",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "多岐にわたる",
+      "replace": "いろんな",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "活用することで",
+      "replace": "使うことで",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "活用できる",
+      "replace": "使える",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "活用しましょう",
+      "replace": "使ってみてください",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "向上させる",
+      "replace": "上げる",
+      "family": "硬い言い回し"
+    },
+    {
+      "find": "現代社会において、",
+      "replace": "今の時代、",
+      "family": "前置き"
+    },
+    {
+      "find": "現代において",
+      "replace": "今",
+      "family": "前置き"
+    },
+    {
+      "find": "情報があふれる現代",
+      "replace": null,
+      "family": "前置き",
+      "note": "いつの話かを具体的に"
+    },
+    {
+      "find": "目まぐるしく変化する",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "急速に変化する",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "まず初めに",
+      "replace": "まず",
+      "family": "前置き"
+    },
+    {
+      "find": "まず最初に",
+      "replace": "まず",
+      "family": "前置き"
+    },
+    {
+      "find": "早速ですが、",
+      "replace": "",
+      "family": "前置き"
+    },
+    {
+      "find": "それでは早速見ていきましょう！",
+      "replace": "",
+      "family": "前置き"
+    },
+    {
+      "find": "それでは早速見ていきましょう",
+      "replace": "",
+      "family": "前置き"
+    },
+    {
+      "find": "それでは早速",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "結論から言うと",
+      "replace": null,
+      "family": "前置き",
+      "note": "1投稿に1回まで。毎回使うと型に見える"
+    },
+    {
+      "find": "結論から申し上げますと",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "ご存知でしょうか",
+      "replace": null,
+      "family": "前置き",
+      "note": "問いかけで始めずに中身から"
+    },
+    {
+      "find": "ご存じでしょうか",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "ご存知の通り、",
+      "replace": "",
+      "family": "前置き"
+    },
+    {
+      "find": "ご存じの通り、",
+      "replace": "",
+      "family": "前置き"
+    },
+    {
+      "find": "言うまでもなく、",
+      "replace": "",
+      "family": "前置き"
+    },
+    {
+      "find": "驚くべきことに",
+      "replace": "意外にも",
+      "family": "前置き"
+    },
+    {
+      "find": "興味深いことに",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "このように、",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "以上のように、",
+      "replace": "",
+      "family": "前置き"
+    },
+    {
+      "find": "まとめると",
+      "replace": null,
+      "family": "前置き"
+    },
+    {
+      "find": "いかがでしたでしょうか？",
+      "replace": "",
+      "family": "結び"
+    },
+    {
+      "find": "いかがでしたでしょうか",
+      "replace": "",
+      "family": "結び"
+    },
+    {
+      "find": "いかがでしたか？",
+      "replace": "",
+      "family": "結び"
+    },
+    {
+      "find": "いかがでしたか?",
+      "replace": "",
+      "family": "結び"
+    },
+    {
+      "find": "いかがでしたか",
+      "replace": "",
+      "family": "結び"
+    },
+    {
+      "find": "ではないでしょうか",
+      "replace": null,
+      "family": "結び",
+      "note": "思っているなら「〜と思う」と言い切る"
+    },
+    {
+      "find": "てはいかがでしょうか",
+      "replace": null,
+      "family": "結び"
+    },
+    {
+      "find": "してみてはいかがでしょうか",
+      "replace": "してみてください",
+      "family": "結び"
+    },
+    {
+      "find": "参考になれば幸いです",
+      "replace": "参考になればうれしいです",
+      "family": "結び"
+    },
+    {
+      "find": "ぜひ参考にしてみてください",
+      "replace": null,
+      "family": "結び",
+      "note": "書くなら何の参考になるのかまで"
+    },
+    {
+      "find": "ことでしょう",
+      "replace": null,
+      "family": "結び"
+    },
+    {
+      "find": "最後までご覧いただきありがとうございました",
+      "replace": null,
+      "family": "結び"
+    },
+    {
+      "find": "最後まで読んでいただきありがとうございました",
+      "replace": null,
+      "family": "結び"
+    },
+    {
+      "find": "かけがえのない",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "可能性を秘め",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "無限の可能性",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "可能性は無限",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "ゲームチェンジャー",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "次のレベル",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "ワンランク上",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "人生を変える",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "真価を発揮",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "知らないと損",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "完全ガイド",
+      "replace": null,
+      "family": "誇張"
+    },
+    {
+      "find": "カギとなる",
+      "replace": null,
+      "family": "誇張",
+      "note": "「大事な」で言い換えられるか、文ごと見直す"
+    },
+    {
+      "find": "至福のひととき",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "特別なひととき",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "あなただけの",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "一歩を踏み出",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "旅に出かけ",
+      "replace": null,
+      "family": "飾り言葉"
+    },
+    {
+      "find": "の世界へようこそ",
+      "replace": null,
+      "family": "飾り言葉",
+      "note": "あいさつを消して本題から"
+    },
+    {
+      "find": "シームレス",
+      "replace": "スムーズ",
+      "family": "カタカナ語"
+    },
+    {
+      "find": "ソリューション",
+      "replace": "解決策",
+      "family": "カタカナ語"
+    },
+    {
+      "find": "アプローチ",
+      "replace": null,
+      "family": "カタカナ語"
+    },
+    {
+      "find": "ベネフィット",
+      "replace": null,
+      "family": "カタカナ語"
+    },
+    {
+      "find": "インサイト",
+      "replace": null,
+      "family": "カタカナ語"
+    },
+    {
+      "find": "マインドセット",
+      "replace": null,
+      "family": "カタカナ語"
+    },
+    {
+      "find": "ウェルビーイング",
+      "replace": null,
+      "family": "カタカナ語"
+    },
+    {
+      "find": "紹介していきます",
+      "replace": "紹介します",
+      "family": "インスタ"
+    },
+    {
+      "find": "解説していきます",
+      "replace": "解説します",
+      "family": "インスタ"
+    },
+    {
+      "find": "説明していきます",
+      "replace": "説明します",
+      "family": "インスタ"
+    },
+    {
+      "find": "お伝えしていきます",
+      "replace": "お伝えします",
+      "family": "インスタ"
+    },
+    {
+      "find": "見ていきましょう",
+      "replace": null,
+      "family": "インスタ"
+    },
+    {
+      "find": "最後まで見てね",
+      "replace": null,
+      "family": "インスタ"
+    }
+  ],
+  "structures": [
+    {
+      "id": "not-just",
+      "regex": "(?:だけ|のみ)で(?:は)?なく[^。！？\\n]{1,40}(?:も|まで)",
+      "name": "「AだけでなくBも」",
+      "fix": "言いたい方だけ書く。前置きの半分は消してよさそう。"
+    },
+    {
+      "id": "not-but",
+      "regex": "ではなく[、，][^。！？\\n]{1,40}(?:なのです|なんです|です)。",
+      "name": "「Aではなく、Bなのです」",
+      "fix": "Bから書き始める。ひっくり返しの演出がAIっぽく見える。"
+    },
+    {
+      "id": "welcome",
+      "regex": "の世界へようこそ",
+      "name": "「〜の世界へようこそ」",
+      "fix": "あいさつを消して本題から入る。"
+    },
+    {
+      "id": "teiki-mashou",
+      "regex": "ていきましょう[！!]?",
+      "name": "「〜していきましょう！」",
+      "fix": "「〜してみて」「〜しよう」くらいの温度に。"
+    },
+    {
+      "id": "three-points",
+      "regex": "(?:ポイント|コツ|理由|方法|ステップ|特徴|メリット)は[3３三]つ|[3３三]つの(?:ポイント|コツ|理由|方法|ステップ|特徴|メリット)",
+      "name": "「ポイントは3つ」",
+      "fix": "3つはAIの定番リズム。2つか4つにするか、数を言わずに書く。"
+    },
+    {
+      "id": "triad",
+      "regex": "[^、。！？\\n]{1,12}、[^、。！？\\n]{1,12}、そして[^、。！？\\n]{1,15}",
+      "name": "「A、B、そしてC」の三連",
+      "fix": "「そして」を消すか、2つに減らす。"
+    },
+    {
+      "id": "taigen-chain",
+      "regex": "(?m)^(?:[^\\n。！？!?]*[一-龯ァ-ヴー]\\n){2,}[^\\n。！？!?]*[一-龯ァ-ヴー]$",
+      "name": "体言止めの連続（3行以上）",
+      "fix": "1行だけ「〜でした」「〜なんです」で終わらせて流れを作る。"
+    },
+    {
+      "id": "question-open",
+      "regex": "(?:お?悩み(?:は|、)?ありませんか|ご存[知じ](?:でしょうか|ですか)|と思ったことはありませんか)",
+      "name": "問いかけで始まる定番の書き出し",
+      "fix": "問いかけを消して、自分に起きたことから書く。"
+    },
+    {
+      "id": "preamble",
+      "regex": "(?:この|今回の)(?:記事|投稿|動画|リール)では|今回は[^。\\n]{1,30}(?:ご紹介|解説|お伝え)(?:します|していきます)",
+      "name": "前置き（「今回は〜をご紹介します」）",
+      "fix": "前置きを消して結論から。最初の2秒で決まる。"
+    },
+    {
+      "id": "closer",
+      "regex": "(?m)^\\s*(?:まとめ|結論|最後に)[：:]|最後まで(?:ご覧|読んで|見て)いただき",
+      "name": "締めの決まり文句",
+      "fix": "投稿にまとめの段落はいらない。最後の一文で止める。"
+    },
+    {
+      "id": "deshou-repeat",
+      "regex": "でしょう。[^\\n]*でしょう。",
+      "name": "「〜でしょう。」の連発",
+      "fix": "1つは言い切りに変える。"
+    },
+    {
+      "id": "touten-heavy",
+      "regex": "(?:[^。！？!?\\n、]{1,25}、){4,}",
+      "name": "読点（、）が4つ以上ある長い一文",
+      "fix": "2文に分ける。読点を減らす。"
+    },
+    {
+      "id": "as-an-ai",
+      "regex": "AIとして|言語モデルとして|AIアシスタントとして",
+      "name": "AIの自己言及",
+      "fix": "その文ごと消す。"
+    },
+    {
+      "id": "emoji-bullets",
+      "regex": "(?m)^\\s*[\\U0001F300-\\U0001FAFF✅➡⬅✔✨▶■◆●☑]\\s*\\S",
+      "name": "絵文字の箇条書き",
+      "fix": "「・」か改行だけにする。絵文字の行頭はテンプレっぽさが一番出る。"
+    },
+    {
+      "id": "sparkle-spam",
+      "regex": "[\\U0001F680\\U0001F525\\U0001F4A1✨\\U0001F3AF](?:\\s*[\\U0001F680\\U0001F525\\U0001F4A1✨\\U0001F3AF]){2,}",
+      "name": "🚀🔥💡✨🎯 の連打",
+      "fix": "絵文字は1つで足りる。"
+    },
+    {
+      "id": "hashtag-wall",
+      "regex": "(?:[#＃][^\\s#＃]+[ \\t　]*){10,}",
+      "name": "ハッシュタグの壁（10個以上）",
+      "fix": "数を絞る。本文とつながるタグだけ残す。"
+    },
+    {
+      "id": "follow-bait",
+      "regex": "フォローしてね|フォローお願いします|いいね(?:と|&|＆|・)(?:保存|フォロー)|保存して(?:後で|あとで)?見返|コメントで教えて|シェアしてね",
+      "name": "反射的なフォロー・保存のお願い",
+      "fix": "お願いは1投稿に1つまで。この投稿ならではのお願いにする。"
+    },
+    {
+      "id": "shout",
+      "regex": "[！!]{3,}",
+      "name": "「！！！」の3連以上",
+      "fix": "1つで足りる。"
+    }
+  ]
+}
