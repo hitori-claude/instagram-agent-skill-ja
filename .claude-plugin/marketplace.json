@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "instagram-agent-skill-ja",
+  "description": "インスタ運用スキル（日本語版）",
+  "owner": {
+    "name": "ヒトリ"
+  },
+  "plugins": [
+    {
+      "name": "instagram-agent-ja",
+      "description": "インスタ運用を手伝う Claude Code のスキル13個（日本語版）。フックの採点、伸びている投稿の調査、キャプション点検、AIっぽさ消しなど。",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/hitori-claude/instagram-agent-skill-ja"
+    }
+  ]
+}

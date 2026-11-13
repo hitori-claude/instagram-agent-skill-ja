@@ -1,0 +1,22 @@
+{
+  "name": "instagram-agent-ja",
+  "description": "インスタ運用を手伝う Claude Code のスキル13個（日本語版）。26種類の型からフックを作って採点するリール台本、ジャンルで伸びている投稿の調査、「続きを読む」前の表示を確かめるキャプション点検、カルーセル、ストーリーズ、プロフィール採点、週の計画、コメント、返信、DM、作り直し、振り返り、AIっぽさ消し。",
+  "version": "1.0.0",
+  "author": {
+    "name": "ヒトリ（日本語版） / Jake Schincariol（原作）"
+  },
+  "homepage": "https://github.com/hitori-claude/instagram-agent-skill-ja",
+  "repository": "https://github.com/hitori-claude/instagram-agent-skill-ja",
+  "license": "MIT",
+  "keywords": [
+    "instagram",
+    "reels",
+    "content",
+    "writing",
+    "humanizer",
+    "social",
+    "marketing",
+    "japanese",
+    "日本語"
+  ]
+}
